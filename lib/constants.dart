@@ -14,7 +14,12 @@ const String coffeeHintString = 'in gms';
 const String waterHintString = 'in gms';
 
 // Themes
-const textInputColor = TextStyle(color: Colors.brown);
+const textInputTheme = TextStyle(
+  color: Colors.brown,
+  fontSize: 20,
+  fontFamily: fontFamilyKanit,
+  fontStyle: FontStyle.italic,
+);
 
 InputDecoration setInputTheme(hintString, labelString) {
   return InputDecoration(

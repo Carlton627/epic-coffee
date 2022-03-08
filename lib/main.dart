@@ -15,13 +15,19 @@ class EpicCoffeeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: primaryColor,
-      body: Column(children: [
-        const SizedBox(height: 100),
-        Container(
-          child: const InputField(),
-          padding: const EdgeInsets.all(20),
-        ),
-      ]),
+      body: SingleChildScrollView(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              const SizedBox(height: 200), // logo here
+              Container(
+                child: const InputField(),
+                padding: const EdgeInsets.all(20),
+              ),
+              const SizedBox(height: 15)
+            ]),
+      ),
     );
   }
 }
@@ -60,7 +66,7 @@ class _InputFieldState extends State<InputField> {
       children: [
         const LabelText(labelString: coffeeLabelString),
         TextField(
-            style: textInputColor,
+            style: textInputTheme,
             controller: _coffeeController,
             decoration: coffeeInputTheme,
             keyboardType: TextInputType.number,
@@ -83,7 +89,7 @@ class _InputFieldState extends State<InputField> {
         const SizedBox(height: 10),
         const LabelText(labelString: waterLabelString),
         TextField(
-            style: textInputColor,
+            style: textInputTheme,
             controller: _waterInputController,
             decoration: waterInputTheme,
             keyboardType: TextInputType.number,
@@ -116,7 +122,8 @@ class _InputFieldState extends State<InputField> {
 
 class LabelText extends StatelessWidget {
   final String labelString;
-  const LabelText({required this.labelString ,Key? key}) : super(key: key);
+
+  const LabelText({required this.labelString, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +133,6 @@ class LabelText extends StatelessWidget {
           fontFamily: fontFamilyKanit,
           fontWeight: FontWeight.bold,
           fontSize: 45,
-        )
-    );
+        ));
   }
 }
